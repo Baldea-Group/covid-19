@@ -17,10 +17,9 @@ The data is located in  and is read directly from the repository './data'
     Inputs: 
         - country_name: string containing the name of the country (refer the list obtained in data_read.py for the 
                         correct list of countries)  
-        - t_horizon: time horizon for the parameter estimation problem, depending on data available) 
         - n_pwl: number of piece-wise linear segments for inputs
  '''
-m = dae_model_parameter_estimation.param_estimation_fun('US',74, 15)
+m = dae_model_parameter_estimation.param_estimation_fun('US', 15)
 
 '''Plotting and simulation function.
     Inputs: 
