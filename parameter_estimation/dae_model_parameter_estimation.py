@@ -357,7 +357,7 @@ def plotting_fun(m,country_name, t_f):
     params['alpha_i'] = alpha_i[-1]
     params['kappa'] = kappa_p[-1]
 
-    sim, t_sim, sol = model_simulation.simulation_fun(params, 74, t_f)
+    sim, t_sim, sol = model_simulation.simulation_fun(params, t[-1], t_f)
 
     plt.rcParams['lines.markersize'] = 3
 
