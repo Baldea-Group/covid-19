@@ -3,9 +3,7 @@ from pyomo.environ import *
 from pyomo.dae import *
 import matplotlib.pyplot as plt
 import numpy as np
-import numpy as np
 import gc
-import cplex
 import pandas as pd
 
 
