@@ -115,6 +115,8 @@ def param_estimation_fun(country_name,t_horizon, n_pwl):
     data_I_dict, N = data_read.return_data_ready('I', country_name)
     data_P_dict, N = data_read.return_data_ready('P', country_name)
     data_R_dict, N = data_read.return_data_ready('R', country_name)
+    for key in data_I_dict.keys():
+        data_I_dict[key] = data_I_dict[key] - data_P_dict[key] - data_R_dict[key]
 
     # Total population
     m.N = Param(initialize=N)
