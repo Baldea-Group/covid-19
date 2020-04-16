@@ -153,7 +153,7 @@ def param_estimation_fun(country_name,t_horizon, n_pwl):
 
     # #  Discretize model using radau collocation
     discretizer = TransformationFactory('dae.collocation')
-    discretizer.apply_to(m, wrt=m.t, nfe=74, ncp=2)
+    discretizer.apply_to(m, wrt=m.t, nfe=t_horizon, ncp=2)
 
 
 
