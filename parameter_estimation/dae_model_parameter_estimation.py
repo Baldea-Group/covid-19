@@ -14,7 +14,15 @@ import model_simulation
 import gc
 
 
-def param_estimation_fun(country_name,t_horizon, n_pwl):
+def param_estimation_fun(country_name, n_pwl):
+    
+    data_I_dict, N = data_read.return_data_ready('I', country_name)
+    data_P_dict, N = data_read.return_data_ready('P', country_name)
+    data_R_dict, N = data_read.return_data_ready('R', country_name)
+    for key in data_I_dict.keys():
+        data_I_dict[key] = data_I_dict[key] - data_P_dict[key] - data_R_dict[key]
+        
+    t_horizon = len(data_I_dict.keys()) - 1
 
     # Time horizon
     m = ConcreteModel()
@@ -111,12 +119,6 @@ def param_estimation_fun(country_name,t_horizon, n_pwl):
 
 
     m.diffeq6 = Constraint(m.t, rule=_diffeq6)
-
-    data_I_dict, N = data_read.return_data_ready('I', country_name)
-    data_P_dict, N = data_read.return_data_ready('P', country_name)
-    data_R_dict, N = data_read.return_data_ready('R', country_name)
-    for key in data_I_dict.keys():
-        data_I_dict[key] = data_I_dict[key] - data_P_dict[key] - data_R_dict[key]
 
     # Total population
     m.N = Param(initialize=N)
