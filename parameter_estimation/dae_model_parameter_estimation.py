@@ -1,7 +1,7 @@
 '''
 Author: Fernando Lejarza (lejarza@utexas.edu)
 Affilition: The University of Texas at Austin
-Last modified: 04.13.2020
+Last modified: 04.17.2020 (CT)
 '''
 
 
