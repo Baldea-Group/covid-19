@@ -152,7 +152,7 @@ def policy_opt_fun(params,t_in,t_f,n_pwl, i_peak):
 
 
     def obj_fun(m):
-        return -sum(m.alpha_i[t] + m.alpha_e[t] for t in m.t)
+        return -sum(m.alpha_i[t] + m.alpha_e[t] - 0.1 * m.kappa_p[t] for t in m.t)
 
     m.obj = Objective(rule=obj_fun, sense=minimize)
 
